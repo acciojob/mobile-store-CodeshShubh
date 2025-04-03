@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Edit = ({ mobile, setmobile }) => {
   const [editProduct, seteditProduct] = useState(null);
   const [isLoading , setisLoading] = useState(true);
+  const navigate = useNavigate();
 
   const params = useParams();
   useEffect(() => {
@@ -29,6 +30,13 @@ const Edit = ({ mobile, setmobile }) => {
      setmobile(updateMobile)
    }
    console.log(mobile)
+
+   const deleteHandle = (e)=>{
+    e.preventDefault()
+    const deleteMobile = mobile.filter((items)=>items.id!=params.id)
+    setmobile(deleteMobile)
+    navigate('/admin')
+   }
 
   return (
     <div style={{  width: "50%", margin: "0 auto" }}>
@@ -105,6 +113,7 @@ const Edit = ({ mobile, setmobile }) => {
                           backgroundColor: "black",
                           color: "white",
                         }}
+                        onClick={deleteHandle}
                       >
                         Delete
                       </button>

@@ -6,6 +6,7 @@ import Admin from "./Admin";
 import ProductDetails from "./ProductDetails";
 import Header from "./Header";
 import Edit from "./Edit";
+import AddProduct from "./addProduct";
 
 const App = () => {
 
@@ -34,8 +35,10 @@ const App = () => {
      <Routes>
         <Route path="/" element={<ProductList mobile={mobile} isLoading={isLoading} />}/>
         <Route path="/product/:id" element={<ProductDetails mobile={mobile}/>}/>
-        <Route path="/admin" element={<Admin mobile={mobile} />}/>
+        <Route path="/admin" element={<Admin mobile={mobile} />}/> 
         <Route path="/admin/products/:id" element={<Edit mobile={mobile} setmobile={setmobile} />}/>
+        <Route path="/addproducts" element={<AddProduct mobile={mobile} setmobile={setmobile} />}/>
+
      </Routes>
     </BrowserRouter>
   )

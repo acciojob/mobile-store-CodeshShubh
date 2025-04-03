@@ -14,7 +14,7 @@ useEffect(() => {
 
   return (
     <div style={{ width: "40%", margin: "0 auto" }}>
-      <button
+      <Link to={'/addproducts'}
         style={{
           marginLeft:'2.5rem',
           border: "1px solid red",
@@ -25,7 +25,7 @@ useEffect(() => {
         }}
       >
         Add Product
-      </button>
+      </Link>
 
       <ul style={{ display:'flex',flexDirection:'column', gap:'1rem'}}>
         {products.map((items) => {
